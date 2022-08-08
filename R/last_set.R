@@ -1,3 +1,10 @@
-last_set <- function(x, split) {
-  strsplit(x, split = split)[[1]]
+#' Get latest released LoR set number
+#'
+#' @return A numeric integer
+#' @export
+#'
+#' @examples
+#' last_set()
+last_set <- function() {
+  'idk'
 }
