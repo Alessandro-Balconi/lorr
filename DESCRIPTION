@@ -12,6 +12,9 @@ RoxygenNote: 7.1.1
 URL: https://github.com/Alessandro-Balconi/lorr
 BugReports: https://github.com/Alessandro-Balconi/lorr/issues
 Imports: 
+    config,
+    DBI,
     httr,
     jsonlite,
+    RMariaDB,
     stringi
