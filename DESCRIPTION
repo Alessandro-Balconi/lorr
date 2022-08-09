@@ -14,6 +14,8 @@ BugReports: https://github.com/Alessandro-Balconi/lorr/issues
 Imports: 
     config,
     DBI,
+    discordr,
+    glue,
     httr,
     jsonlite,
     RMariaDB,
