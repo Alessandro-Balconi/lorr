@@ -18,5 +18,6 @@ Imports:
     glue,
     httr,
     jsonlite,
+    purrr,
     RMariaDB,
     stringi
