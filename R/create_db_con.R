@@ -4,9 +4,6 @@
 #'
 #' @return A connection object
 #' @export
-#'
-#' @examples
-#' create_db_con()
 create_db_con <- function(bigint = "integer64") {
 
   # load mysql db credentials

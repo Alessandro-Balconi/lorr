@@ -15,6 +15,3 @@ A connection object
 \description{
 Connect to MySQL database
 }
-\examples{
-create_db_con()
-}

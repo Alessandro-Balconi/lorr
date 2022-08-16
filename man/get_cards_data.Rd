@@ -15,6 +15,3 @@ A dataframe
 \description{
 Get all data about cards
 }
-\examples{
-get_cards_data()
-}

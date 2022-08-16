@@ -12,6 +12,3 @@ A numeric integer
 \description{
 Get latest released LoR set number
 }
-\examples{
-get_last_set()
-}

@@ -2,9 +2,6 @@
 #'
 #' @return A numeric integer
 #' @export
-#'
-#' @examples
-#' get_last_set()
 get_last_set <- function() {
 
   # perform GET request
@@ -34,9 +31,6 @@ get_last_set <- function() {
 #'
 #' @return A dataframe
 #' @export
-#'
-#' @examples
-#' get_set_cards_data(set = 1)
 get_set_cards_data <- function(
   set,
   select = NULL
@@ -71,9 +65,6 @@ get_set_cards_data <- function(
 #'
 #' @return A dataframe
 #' @export
-#'
-#' @examples
-#' get_cards_data()
 get_cards_data <- function(select = NULL) {
 
   # pull data for all sets and bind them

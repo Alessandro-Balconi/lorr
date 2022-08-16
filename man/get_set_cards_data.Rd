@@ -17,6 +17,3 @@ A dataframe
 \description{
 Get all data about cards from a specific set
 }
-\examples{
-get_set_cards_data(set = 1)
-}
