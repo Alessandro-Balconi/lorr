@@ -4,7 +4,10 @@
 \alias{create_db_con}
 \title{Connect to MySQL database}
 \usage{
-create_db_con()
+create_db_con(bigint = "integer64")
+}
+\arguments{
+\item{bigint}{Class to use for numeric values (one of integer", "numeric", "character", "integer64")}
 }
 \value{
 A connection object
