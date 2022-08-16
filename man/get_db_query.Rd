@@ -9,11 +9,13 @@ get_db_query(
   limit = -1,
   print_text = FALSE,
   print_df = FALSE,
-  conn = NULL
+  conn = NULL,
+  bigint = "integer64",
+  ...
 )
 }
 \arguments{
-\item{query}{The query to execute}
+\item{query}{The query to execute (either the path to a .sql file, or a character string)}
 
 \item{limit}{Maximum number of rows to retrive default: unbounded}
 
@@ -22,6 +24,10 @@ get_db_query(
 \item{print_df}{Print first rows of df? default: false}
 
 \item{conn}{connection to the db; if not provided, create one and close it after the query}
+
+\item{bigint}{Class to use for numeric values (one of integer", "numeric", "character", "integer64")}
+
+\item{...}{Additional parameters to use for parametric queries}
 }
 \value{
 A dataframe
