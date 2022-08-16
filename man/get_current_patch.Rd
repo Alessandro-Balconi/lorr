@@ -12,7 +12,7 @@ get_current_patch(
 )
 }
 \arguments{
-\item{what}{One of "patch", "patch_regex", "release_date" (default: "patch")}
+\item{what}{One of "patch", "patch_regex" (default: "patch")}
 
 \item{since_last_change}{If TRUE, returns all patches since the last one with changes; otherwise returns only the very last one (default: TRUE)}
 
