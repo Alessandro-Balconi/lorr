@@ -58,13 +58,16 @@ get_db_query <- function(
   # get query statement
   query <- lorr::get_query_statement(query)
 
+  # replace query params if any
+  query <- glue::glue(query, ..., .envir = parent.frame())
+
   # print query if needed
-  if(print_text){ cat(glue::glue(query, ...)) }
+  if(print_text){ cat(query) }
 
   # get data
   data <- DBI::dbGetQuery(
     conn = conn,
-    statement = glue::glue(query, ...),
+    statement = query,
     n = limit
   )
 
