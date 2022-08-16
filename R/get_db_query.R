@@ -4,7 +4,6 @@
 #'
 #' @return A character string, ready to be read by R
 #' @export
-#'
 get_query_statement <- function(query){
 
   if(file.exists(query)){
@@ -35,7 +34,6 @@ get_query_statement <- function(query){
 #'
 #' @return A dataframe
 #' @export
-#'
 get_db_query <- function(
   query,
   limit = -1,
