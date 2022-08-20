@@ -1,8 +1,10 @@
-#' Get latest released LoR set number
+#' Get all sets released
 #'
-#' @return A numeric integer
+#' @param trim boolean; shold the "Set" prefix be removed? (default: true)
+#'
+#' @return A vector with all released sets
 #' @export
-get_last_set <- function() {
+get_sets <- function(trim = TRUE) {
 
   # perform GET request
   req <- httr::GET("https://dd.b.pvp.net/latest/core/en_us/data/globals-en_us.json")
@@ -12,6 +14,23 @@ get_last_set <- function() {
 
   # extract sets name from JSON content
   sets <- jsonlite::fromJSON(content)[["sets"]]$nameRef
+
+  # if needed, remove the "Set" prefix
+  if(trim){ sets <- gsub(pattern = "Set", replacement = "", x = sets) }
+
+  # return last_set
+  return(sets)
+
+}
+
+#' Get latest released LoR set number
+#'
+#' @return A numeric integer
+#' @export
+get_last_set <- function() {
+
+  # get list of all sets released
+  sets <- lorr::get_sets()
 
   # extract number from sets and convert to numeric
   sets <- as.numeric(stringi::stri_extract(sets, regex = '[0-9]+'))
@@ -67,10 +86,14 @@ get_set_cards_data <- function(
 #' @export
 get_cards_data <- function(select = NULL) {
 
+  # Get list of all sets released on LoR
+  # "Event" is a special set that has no cards
+  sets <- setdiff(lorr::get_sets(), 'Event')
+
   # pull data for all sets and bind them
   data <- purrr::map_dfr(
-    .x = 1:(lorr::get_last_set()),
-    .f = ~get_set_cards_data(., select = select),
+    .x = sets,
+    .f = ~lorr::get_set_cards_data(., select = select),
     .id = "set"
   )
 
