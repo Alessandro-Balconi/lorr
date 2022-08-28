@@ -2,6 +2,7 @@
 
 export(create_db_con)
 export(execute_db_query)
+export(get_archetype_from_deck_code)
 export(get_cards_data)
 export(get_current_patch)
 export(get_db_query)
