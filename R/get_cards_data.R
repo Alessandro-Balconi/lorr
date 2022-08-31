@@ -23,26 +23,6 @@ get_sets <- function(trim = TRUE) {
 
 }
 
-#' Get latest released LoR set number
-#'
-#' @return A numeric integer
-#' @export
-get_last_set <- function() {
-
-  # get list of all sets released
-  sets <- lorr::get_sets()
-
-  # extract number from sets and convert to numeric
-  sets <- as.numeric(stringi::stri_extract(sets, regex = '[0-9]+'))
-
-  # get maximum number (it's the latest set released)
-  last_set <- max(sets, na.rm = TRUE)
-
-  # return last_set
-  return(last_set)
-
-}
-
 #' Get all data about cards from a specific set
 #'
 #' @param set The number of the set
@@ -92,7 +72,7 @@ get_cards_data <- function(select = NULL) {
 
   # pull data for all sets and bind them
   data <- purrr::map_dfr(
-    .x = sets,
+    .x = purrr::set_names(sets, sets),
     .f = ~lorr::get_set_cards_data(., select = select),
     .id = "set"
   )
