@@ -4,12 +4,14 @@
 \alias{get_set_cards_data}
 \title{Get all data about cards from a specific set}
 \usage{
-get_set_cards_data(set, select = NULL)
+get_set_cards_data(set, select = NULL, use_latest = TRUE)
 }
 \arguments{
 \item{set}{The number of the set}
 
 \item{select}{A character vector with the fields to keep (return all fields if NULL)}
+
+\item{use_latest}{Should the "latest" JSON be used? or the current version one? (default: TRUE)}
 }
 \value{
 A dataframe

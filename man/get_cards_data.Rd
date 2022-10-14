@@ -4,10 +4,12 @@
 \alias{get_cards_data}
 \title{Get all data about cards}
 \usage{
-get_cards_data(select = NULL)
+get_cards_data(select = NULL, use_latest = TRUE)
 }
 \arguments{
 \item{select}{A character vector with the fields to keep (return all fields if NULL)}
+
+\item{use_latest}{Should the "latest" JSON be used? or the current version one? (default: TRUE)}
 }
 \value{
 A dataframe
