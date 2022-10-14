@@ -4,12 +4,14 @@
 \alias{get_archetype_from_deck_code}
 \title{Get an archetype name from a deck code}
 \usage{
-get_archetype_from_deck_code(deck_code, engine = "r")
+get_archetype_from_deck_code(deck_code, engine = "r", data_champs = NULL)
 }
 \arguments{
 \item{deck_code}{A character string with the code of the deck}
 
 \item{engine}{One of "r" or "python" (default: "r")}
+
+\item{data_champs}{Champions data from LoR Data Dragon (if NULL, the default, it will be fetched within the function)}
 }
 \value{
 A character string
