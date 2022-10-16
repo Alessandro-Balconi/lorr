@@ -19,7 +19,7 @@ launch_scripts_in_folder <- function(
 ){
 
   # list all scripts in the folder
-  scripts <- list.files(folder, full.names = TRUE)
+  scripts <- list.files(folder, full.names = TRUE, pattern = "\\.R$")
 
   if(log_time) { tictoc::tic() }
 
