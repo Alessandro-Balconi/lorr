@@ -15,7 +15,8 @@ launch_scripts_in_folder <- function(
   log_message = 'End: ',
   send_error_to_discord = TRUE,
   discord_username,
-  discord_message = "Error. "
+  discord_message = "Error. ",
+  verbosity = "defult"
 ){
 
   # list all scripts in the folder
@@ -23,9 +24,19 @@ launch_scripts_in_folder <- function(
 
   if(log_time) { tictoc::tic() }
 
+  func <- switch(
+    verbosity,
+    "debug" = function(x){
+      cat(paste(x, "start:", Sys.time(), sep = " "))
+      source(x)
+      cat(paste(x, "end:", Sys.time(), sep = " "))
+    },
+    function(x) source(x) # default function, just source
+  )
+
   # safely run the scripts, returning an error message if something goes wrong
   tryCatch(
-    expr = purrr::walk(.x = scripts, .f = source),
+    expr = purrr::walk(.x = scripts, .f = func),
     error = function(e) {
       if(send_error_to_discord){
         lorr::send_discord_message(
